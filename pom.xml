@@ -1,0 +1,76 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>es.tipolisto.wallpaper</groupId>
+  <artifactId>wallpaper</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>Wallpaper</name>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+  <dependencies>
+  <!--Las siguientes librerias se utilizan para acceder a los métodos del sistemas-->
+  <!-- https://mvnrepository.com/artifact/net.java.dev.jna/jna -->
+	<dependency>
+	    <groupId>net.java.dev.jna</groupId>
+	    <artifactId>jna</artifactId>
+	    <version>5.13.0</version>
+	</dependency>
+
+  	<!-- https://mvnrepository.com/artifact/net.java.dev.jna/jna-platform -->
+	<dependency>
+	    <groupId>net.java.dev.jna</groupId>
+	    <artifactId>jna-platform</artifactId>
+	    <version>5.13.0</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
+	<!--<dependency>
+	    <groupId>com.googlecode.json-simple</groupId>
+	    <artifactId>json-simple</artifactId>
+	    <version>1.1.1</version>
+	</dependency>-->
+	<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+	<dependency>
+	    <groupId>com.google.code.gson</groupId>
+	    <artifactId>gson</artifactId>
+	    <version>2.10</version>
+	</dependency>
+    <dependency>
+	    <groupId>org.xerial</groupId>
+	    <artifactId>sqlite-jdbc</artifactId>
+	    <version>3.39.4.1</version>
+	</dependency>
+
+ </dependencies>
+ 
+ <build>
+	 <plugins>
+	      <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <version>3.3.0</version>
+            <configuration>            
+                <descriptorRefs>
+                    <descriptorRef>jar-with-dependencies</descriptorRef>
+                </descriptorRefs>           
+                <archive>
+                    <manifest>
+                        <mainClass>wallpaper.Main</mainClass>
+                    </manifest>
+                </archive>
+            </configuration>
+            <executions>
+                <execution>
+                    <id>make-assembly</id>
+                    <phase>package</phase> 
+                    <goals>
+                        <goal>single</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+
+	 </plugins>
+ </build>
+</project>
